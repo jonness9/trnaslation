@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Skills Courses</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+
+    .course-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    img.skill-img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .course-link {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: blue;
+      text-decoration: none;
+    }
+
+    /* Language selector */
+    details.language-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 220px;
+      z-index: 9999;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    details.language-selector summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    #langSearch {
+      width: 100%;
+      margin: 10px 0;
+      padding: 5px;
+      font-size: 0.9rem;
+    }
+
+    #langList {
+      max-height: 250px;
+      overflow-y: auto;
+    }
+
+    #langList div {
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+
+    #langList div:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Translate Panel -->
+  <details class="language-selector">
+    <summary>🌐 Translate Page</summary>
+    <input type="text" id="langSearch" placeholder="Search language...">
+    <div id="langList"></div>
+  </details>
+
+  <!-- Main Content -->
+  <h1>Basic Web Development Skills Courses</h1>
+
+  <section>
+    <h2>HTML & CSS</h2>
+    <div class="course-info">
+      <img src="images/html-css.png" alt="HTML & CSS" class="skill-img">
+      <a class="course-link" href="https://www.freecodecamp.org/learn/2022/responsive-web-design/" target="_blank">Start HTML & CSS Course →</a>
+    </div>
+    <p>This course teaches you how to structure websites using HTML and style them using CSS. You’ll build real projects and understand layout, colors, fonts, and responsive elements.</p>
+  </section>
+
+  <section>
+    <h2>JavaScript</h2>
+    <div class="course-info">
+      <img src="images/javascript.png" alt="JavaScript" class="skill-img">
+      <a class="course-link" href="https://www.javascript.info/" target="_blank">Start JavaScript Course →</a>
+    </div>
+    <p>This course introduces JavaScript basics including variables, functions, and events. It’s perfect for understanding how to make websites dynamic and interactive.</p>
+  </section>
+
+  <section>
+    <h2>Responsive Design</h2>
+    <div class="course-info">
+      <img src="images/responsive-design.png" alt="Responsive Design" class="skill-img">
+      <a class="course-link" href="https://www.freecodecamp.org/learn/2022/responsive-web-design/#learn-css-flexbox-by-building-a-photo-gallery" target="_blank">Start Responsive Design Course →</a>
+    </div>
+    <p>This course helps you design websites that adapt to different screen sizes using Flexbox, Grid, and media queries. It’s ideal for mobile-friendly web development.</p>
+  </section>
+
+  <section>
+    <h2>Git & GitHub</h2>
+    <div class="course-info">
+      <img src="images/git-github.png" alt="Git & GitHub" class="skill-img">
+      <a class="course-link" href="https://www.udacity.com/course/version-control-with-git--ud123" target="_blank">Start Git & GitHub Course →</a>
+    </div>
+    <p>Learn how to track changes in your code using Git and collaborate with others on GitHub. This course covers commits, branching, pull requests, and more.</p>
+  </section>
+
+  <!-- Language Selector Script -->
+  <script>
+    const languages = {
+      af: "Afrikaans", am: "Amharic", ar: "Arabic", az: "Azerbaijani", be: "Belarusian", bg: "Bulgarian",
+      bn: "Bengali", bs: "Bosnian", ca: "Catalan", ceb: "Cebuano", cs: "Czech", cy: "Welsh", da: "Danish",
+      de: "German", el: "Greek", en: "English", eo: "Esperanto", es: "Spanish", et: "Estonian", eu: "Basque",
+      fa: "Persian", fi: "Finnish", fr: "French", ga: "Irish", gl: "Galician", gu: "Gujarati", ha: "Hausa",
+      haw: "Hawaiian", he: "Hebrew", hi: "Hindi", hmn: "Hmong", hr: "Croatian", ht: "Haitian Creole",
+      hu: "Hungarian", hy: "Armenian", id: "Indonesian", ig: "Igbo", is: "Icelandic", it: "Italian", ja: "Japanese",
+      jw: "Javanese", ka: "Georgian", kk: "Kazakh", km: "Khmer", kn: "Kannada", ko: "Korean", ku: "Kurdish",
+      ky: "Kyrgyz", la: "Latin", lb: "Luxembourgish", lo: "Lao", lt: "Lithuanian", lv: "Latvian", mg: "Malagasy",
+      mi: "Maori", mk: "Macedonian", ml: "Malayalam", mn: "Mongolian", mr: "Marathi", ms: "Malay", mt: "Maltese",
+      my: "Myanmar (Burmese)", ne: "Nepali", nl: "Dutch", no: "Norwegian", ny: "Nyanja", pa: "Punjabi",
+      pl: "Polish", ps: "Pashto", pt: "Portuguese", ro: "Romanian", ru: "Russian", rw: "Kinyarwanda",
+      sd: "Sindhi", si: "Sinhala", sk: "Slovak", sl: "Slovenian", sm: "Samoan", sn: "Shona", so: "Somali",
+      sq: "Albanian", sr: "Serbian", st: "Sesotho", su: "Sundanese", sv: "Swedish", sw: "Swahili", ta: "Tamil",
+      te: "Telugu", tg: "Tajik", th: "Thai", tk: "Turkmen", tl: "Tagalog", tr: "Turkish", tt: "Tatar",
+      ug: "Uyghur", uk: "Ukrainian", ur: "Urdu", uz: "Uzbek", vi: "Vietnamese", xh: "Xhosa", yi: "Yiddish",
+      yo: "Yoruba", zh: "Chinese", zu: "Zulu"
+    };
+
+    const langListDiv = document.getElementById("langList");
+    const searchInput = document.getElementById("langSearch");
+
+    function renderLanguages(filter = "") {
+      langListDiv.innerHTML = "";
+      Object.entries(languages)
+        .filter(([_, name]) => name.toLowerCase().includes(filter.toLowerCase()))
+        .forEach(([code, name]) => {
+          const div = document.createElement("div");
+          div.textContent = name;
+          div.onclick = () => {
+            const cleanUrl = location.href.split('#')[0];
+            window.location.href = `https://translate.google.com/translate?hl=${code}&sl=auto&u=${encodeURIComponent(cleanUrl)}`;
+          };
+          langListDiv.appendChild(div);
+        });
+    }
+
+    searchInput.addEventListener("input", () => renderLanguages(searchInput.value));
+    renderLanguages();
+  </script>
+
+</body>
+</html>
